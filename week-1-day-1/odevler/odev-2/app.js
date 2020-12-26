@@ -4,5 +4,10 @@ const app = Vue.createApp({
       value: "",
     };
   },
+  methods: {
+    showalert(){
+      alert("hi");
+    }
+  },
 });
 app.mount("#exercise");

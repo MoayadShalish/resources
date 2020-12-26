@@ -14,7 +14,7 @@
       <div class="card text-center">
         <!-- 1) Butona tıklanıldığında bir alert kutusu çıkartınız -->
         <div class="mb-10">
-          <button>Alert Göster</button>
+          <button v-on:click="showalert()" >Alert Göster</button>
         </div>
         <!-- 2) "keydown" event'ini dinleyerek value değişkeni içerisinde yazdığınız veriyi saklayın. (ipucu: event.target.value size yazdığınız değeri verebilir.) -->
         <div class="mb-10">
@@ -29,4 +29,5 @@
       </div>
     </div>
   </body>
+  <script src="app.js"></script>
 </html>
