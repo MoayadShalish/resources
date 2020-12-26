@@ -5,6 +5,11 @@ const app = Vue.createApp({
         age : 24,
       }
     },
+    methods: {
+      result(){
+        return this.age * 5;
+      }
+    },
    
   },);
 app.mount("#exercise")
