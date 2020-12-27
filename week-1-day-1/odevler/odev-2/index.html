@@ -23,8 +23,8 @@
         </div>
         <!-- 3) 2.Uygulamayı düzenleyerek eğer keydown ENTER ise yazdığınız verinin value değerine aktarılmasını sağlayın -->
         <div>
-          <input type="text" />
-          <p>{{ value }}</p>
+          <input  @keydown.enter="handlevent2($event)" type="text" />
+          <p>{{ value2 }}</p>
         </div>
       </div>
     </div>

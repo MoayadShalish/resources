@@ -2,7 +2,7 @@ const app = Vue.createApp({
   data() {
     return {
       value: "",
-      
+      value2: ""
     };
   },
   methods: {
@@ -11,6 +11,9 @@ const app = Vue.createApp({
     },
     handlevent: function (event) {
       this.value = event.target.value
+    },
+    handlevent2: function (event) {
+      this.value2 = event.target.value
     }
   },
 });
