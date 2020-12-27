@@ -19,7 +19,7 @@
             <p class="mb-5">Şuanki Değer: {{ value }}</p>
             <button @click="btn5()">Add 5</button>
             <button @click="btn1()">Add 1</button>
-            <p class="mt-5">{{ value == 33 ? "Completed" : "Not Finished Yet !!"}}</p>
+            <p class="mt-5">{{ resultFunc()}}</p>
           </div>
           <!-- 2) result property' değerini izleyerek 5 saniye sonra value'nun değerini sıfırlayınız. (ipucu: setTimeout(..., 5000) kullanılabilir.-->
           <!-- 2) Reset the value of value information after 5 seconds by following the value of result property. (hint: setTimeout (..., 5000) can be used -->

@@ -12,7 +12,9 @@ const app = Vue.createApp({
         btn1() {
             return this.value+=1;
         },
-        
+        resultFunc() {
+            return this.value == 33 ? "Complete" : "Not Yet!!"
+        }
 
     }
 });
