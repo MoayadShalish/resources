@@ -2,7 +2,7 @@ const app = Vue.createApp({
     data() {
         return{
         value: 0,
-        result: "",    
+        result: '',    
         }
     },
     methods: {
@@ -11,10 +11,13 @@ const app = Vue.createApp({
         },
         btn1() {
             return this.value+=1;
-        },
-        resultFunc() {
+        }},
+    computed: {
+        resultFunc: function() {
+            
             return this.value == 33 ? "Complete" : "Not Yet!!"
-        }
-
+        },
+        
+    
     }
 });
