@@ -1,23 +1,35 @@
 const app = Vue.createApp({
     data() {
-        return{
-        value: 0,
-        result: '',    
+        return {
+            value: 0,
+            result: null,
         }
     },
-    methods: {
-        btn5() {
-            return this.value+=5;
-        },
-        btn1() {
-            return this.value+=1;
-        }},
     computed: {
-        resultFunc: function() {
-            
-            return this.value == 33 ? "Complete" : "Not Yet!!"
+        result: function() {
+           return this.value === 33 ? "Completed" : "Not Yet!!";
         },
-        
-    
-    }
+
+    },
+
+    watch: {
+        value(v) {
+            if (v === 33) {
+                this.result = "Completed";
+            }else {
+                this.result = "Not Yet!!";
+            }
+        },
+        reset() {
+            setTimeout(() => {
+                this.value = 0;
+            }, 2000);
+        },
+    },
+
+
+
+
 });
+
+app.mount("#exercise");
