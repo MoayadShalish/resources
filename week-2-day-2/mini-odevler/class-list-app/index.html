@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Class List App</title>
     <link rel="stylesheet" href="/assets/style.css" />
+    <script src="https://unpkg.com/vue@next"></script>
   </head>
   <body>
     <header>Class List App</header>
@@ -15,45 +16,61 @@
           <ul class="class-list">
             <li>
               <label>
-                <input class="mr-5" type="checkbox" />
+                <input
+                  class="mr-5" value="backgroundColor:green" type="checkbox" v-model="stylingTextAria"/>
                 <span>Background Color</span>
               </label>
             </li>
             <li>
               <label>
-                <input class="mr-5" type="checkbox" />
+                <input class="mr-5" value="border:5px" type="checkbox" v-model="stylingTextAria" />
                 <span>Border</span>
               </label>
             </li>
             <li>
               <label>
-                <input class="mr-5" type="checkbox" />
+                <input class="mr-5" value="borderRadius:5px" type="checkbox" v-model="stylingTextAria" />
                 <span>Border Radius</span>
               </label>
             </li>
             <li>
               <label>
-                <input class="mr-5" type="checkbox" />
+                <input class="mr-5" value="color:red" type="checkbox" v-model="stylingTextAria" />
                 <span>Color</span>
               </label>
             </li>
             <li>
               <label>
-                <input class="mr-5" type="checkbox" />
+                <input class="mr-5" value="fontWeight:bold" type="checkbox" v-model="stylingTextAria" />
                 <span>Font Bold</span>
               </label>
             </li>
             <li>
               <label>
-                <input class="mr-5" type="checkbox" />
+                <input class="mr-5" value="fontStyle:italic" type="checkbox" v-model="stylingTextAria" />
                 <span>Font Italic</span>
               </label>
             </li>
           </ul>
 
-          <textarea rows="5"></textarea>
+          <textarea :style="stylingTextAria" rows="5"></textarea>
         </div>
       </div>
     </div>
+    <script>
+      const app = Vue.createApp({
+        data() {
+          return {
+            stylingTextAria: [],
+          }
+        },
+       
+
+      })
+      
+    </script>
+    <script>
+      app.mount(".container")
+    </script>
   </body>
 </html>
