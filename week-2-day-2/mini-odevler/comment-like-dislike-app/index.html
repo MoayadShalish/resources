@@ -6,23 +6,32 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Comment Like/Dislike App</title>
     <link rel="stylesheet" href="/assets/style.css" />
+    <script src="https://unpkg.com/vue@next"></script>
   </head>
   <body>
     <header>Comment Like/Dislike App</header>
     <div class="container">
       <div class="comment--like--dislike--app">
-        <div class="card mb-10 comment--item">
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint
-            deserunt, tempore accusamus iusto nobis dolore ratione itaque
-            perferendis delectus? Nostrum corporis, quod voluptates quis
-            consequuntur eveniet beatae dolor aperiam ad.
-          </p>
-          <div class="action--button--container text-right mt-10">
-            <button class="btn-sm btn-success">Beğendim (10)</button>
-            <button class="btn-sm btn-danger">Beğenmedim (5)</button>
+        <div class="container">
+          <div class="comment--like--dislike--app">
+              <div v-for="(comment, index) in comments" :key="index" class="card mb-10 comment--item">
+                  <p>
+                      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint
+                      deserunt, tempore accusamus iusto nobis dolore ratione itaque
+                      perferendis delectus? Nostrum corporis, quod voluptates quis
+                      consequuntur eveniet beatae dolor aperiam ad.
+                  </p>
+                  <div class="action--button--container text-right mt-10">
+                      <button @click="increment(index)" :id="comment.id" class="btn-sm btn-success">
+                          Like ({{comment.counter.likes}})
+                      </button>
+                      <button @click="decrement(index)" :id="comment.id" class="btn-sm btn-danger">
+                          Dislike ({{comment.counter.dislikeCounter}})
+                      </button>
+                  </div>
+              </div>
           </div>
-        </div>
+      </div>
 
         <div class="card mb-10 comment--item">
           <p>
@@ -45,8 +54,8 @@
             consequuntur eveniet beatae dolor aperiam ad.
           </p>
           <div class="action--button--container text-right mt-10">
-            <button class="btn-sm btn-success">Beğendim (10)</button>
-            <button class="btn-sm btn-danger">Beğenmedim (5)</button>
+            <button class="btn-sm btn-success">Beğendim ({{counter}})</button>
+            <button class="btn-sm btn-danger">Beğenmedim ({{counter}})</button>
           </div>
         </div>
 
@@ -64,5 +73,36 @@
         </div>
       </div>
     </div>
+    <script>
+      const app = Vue.createApp({
+        data() {
+          return {
+            comments: [{
+              id: 1,
+              counter:{
+                likes: 0,
+                dislikeCounter:0
+              }
+            },
+            {
+              id: 2,
+              counter:{
+                likes: 0,
+                dislikeCounter:0
+              }
+            },
+          ],
+          };
+        },
+        methods: {
+          increment(index) {
+            this.comments[index].counter.likes++;
+          },
+          decrement(index) {
+            this.comments[index].counter.dislikeCounter++;
+          }
+        },
+      }).mount(".container");
+    </script>
   </body>
 </html>
